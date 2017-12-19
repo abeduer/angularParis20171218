@@ -9,7 +9,7 @@ import { Item } from '../../../shared/interfaces/item.model';
 })
 export class ListItemComponent implements OnInit {
 
-  public collection: Item[];
+  collection: Item[];
 
   constructor() { }
 

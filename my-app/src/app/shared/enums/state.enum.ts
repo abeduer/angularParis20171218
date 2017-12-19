@@ -1,5 +1,5 @@
 export enum State {
-  ALIVRER,
-  ENCOURS,
-  LIVREE
+  ALIVRER = 'A Livrer',
+  ENCOURS = 'En Cours',
+  LIVREE = 'Livrée'
 }

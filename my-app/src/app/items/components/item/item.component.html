@@ -1,9 +1,10 @@
 <div class="card">
   <div class="card-header">
     <!-- {{item.state}} -->
-    <span class="state-alivrer" *ngIf="state.ALIVRER === item.state">A Livrer</span>
-    <span class="state-encours" *ngIf="state.ENCOURS === item.state">En Cours</span>
-    <span class="state-livree" *ngIf="state.LIVREE === item.state">Livrée</span>
+    <!-- <span class="state-0" *ngIf="state.ALIVRER === item.state">A Livrer</span>
+    <span class="state-1" *ngIf="state.ENCOURS === item.state">En Cours</span>
+    <span class="state-2" *ngIf="state.LIVREE === item.state">Livrée</span> -->
+    <span [appState]="item.state"></span>
   </div>
   <div class="card-body">
     <h4 class="card-title">{{item.name}}</h4>

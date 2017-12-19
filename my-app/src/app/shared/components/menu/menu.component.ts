@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  public isCollapsed = true;
-  public title;
+  isCollapsed = true;
+  title: string;
 
   constructor() { }
 

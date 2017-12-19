@@ -9,7 +9,8 @@ import { State } from '../../../shared/enums/state.enum';
 })
 export class ItemComponent implements OnInit {
 
-  public state = State;
+  state = State;
+
   @Input('item') item: Item;
 
   constructor() { }
