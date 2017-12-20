@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngFor="let item of collection">
+  <div *ngFor="let item of collection | async">
     <!-- {{item | json}} -->
     <app-item [item]="item"></app-item>
   </div>

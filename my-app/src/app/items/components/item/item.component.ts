@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../../../shared/interfaces/item.model';
 import { State } from '../../../shared/enums/state.enum';
+import { CollectionService } from '../../../core/services/collection/collection.service';
 
 @Component({
   selector: 'app-item',
@@ -8,14 +9,16 @@ import { State } from '../../../shared/enums/state.enum';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-
   state = State;
 
   @Input('item') item: Item;
 
-  constructor() { }
+  constructor(private _CollectionService: CollectionService) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  changeState( newState: State) {
+    this.item.state = newState;
+    this._CollectionService.updateItem(this.item);
   }
-
 }

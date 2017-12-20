@@ -34,7 +34,12 @@ export class FormComponent implements OnInit {
   }
 
   process(): void {
-    this.dataItem.emit(this.form.value);
+    this.dataItem.emit({
+      id: '',
+      name: this.form.controls['name'].value,
+      reference: this.form.controls['reference'].value,
+      state: this.form.controls['state'].value
+    });
     this.reset();
     this.openModal();
   }

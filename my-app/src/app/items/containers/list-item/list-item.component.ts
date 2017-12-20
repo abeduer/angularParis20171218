@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { CollectionService } from '../../../core/services/collection/collection.service';
 import { Item } from '../../../shared/interfaces/item.model';
 
@@ -8,7 +9,7 @@ import { Item } from '../../../shared/interfaces/item.model';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-  collection: Item[];
+  collection: Observable<Item[]>;
 
   constructor(private _CollectionService: CollectionService) { }
 

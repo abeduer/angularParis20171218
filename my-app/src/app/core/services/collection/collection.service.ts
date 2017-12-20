@@ -1,33 +1,42 @@
 import { Injectable } from '@angular/core';
-import { COLLECTION } from '../../../items/collection';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument
+} from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+
 import { Item } from '../../../shared/interfaces/item.model';
+import { State } from '../../../shared/enums/state.enum';
 
 @Injectable()
 export class CollectionService {
-  collection: Item[];
+  private itemsCollection: AngularFirestoreCollection<Item>;
+  collection: Observable<Item[]>;
 
-  constructor() {
-    this.setCollection(COLLECTION);
+  constructor(private _AngularFirestore: AngularFirestore) {
+    this.setCollection(_AngularFirestore.collection<Item>('collection'));
   }
 
-  getCollection(): Item[] {
+  getCollection(): Observable<Item[]> {
     return this.collection;
   }
 
-  setCollection(collection: Item[]): void {
-    this.collection = collection;
+  setCollection(collection: AngularFirestoreCollection<Item>): void {
+    this.itemsCollection = collection;
+    this.collection = this.itemsCollection.valueChanges();
   }
 
-  addItem() {
-
+  addItem(item: Item) {
+    item.id = this._AngularFirestore.createId();
+    this.itemsCollection.doc(item.id).set(item);
   }
 
-  updateItem() {
-
+  updateItem(item: Item) {
+    this.itemsCollection.doc(item.id).update(item);
   }
 
-  deleteItem() {
-
+  deleteItem(item: Item) {
+    this.itemsCollection.doc(item.id).delete();
   }
-
 }
