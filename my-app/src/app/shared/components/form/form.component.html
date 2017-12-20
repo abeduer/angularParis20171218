@@ -1,18 +1,19 @@
-<form class="form" #form="ngForm" (ngSubmit)="process()" novalidate>
+<form class="form" [formGroup]="form" (ngSubmit)="process()" novalidate>
   <div class="form-group">
-    <input type="text" name="name" #nom="ngModel" [(ngModel)]="newItem.name"
-           class="form-control" placeholder="Nom et Prénom" minlength="5" required>
-    <div class="alert alert-danger" *ngIf="nom.invalid && nom.touched">Champ Invalide</div>
+    <input type="text" formControlName="name" class="form-control" placeholder="Nom et Prénom">
+    <div class="alert alert-danger" *ngIf="isFieldOnError('name')">Champ Invalide</div>
   </div>
   <div class="form-group">
-    <input type="text" name="ref" #ref="ngModel" [(ngModel)]="newItem.reference"
-           class="form-control" placeholder="Référence (ex: 12345)" minlength="4" required>
-    <div class="alert alert-danger" *ngIf="ref.invalid && ref.touched">Champ Invalide</div>
+    <input type="text" formControlName="reference" class="form-control" placeholder="Référence (ex: 12345)">
+    <div class="alert alert-danger" *ngIf="isFieldOnError('reference')">Champ Invalide</div>
   </div>
   <div class="form-group">
-    <select name="state" [(ngModel)]="newItem.state" class="form-control">
+    <select formControlName="state" class="form-control">
       <option *ngFor="let libelle of stateLibelle" [value]="libelle">{{libelle}}</option>
     </select>
   </div>
-  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Valider</button>
+  <div class="form-group">
+    <button type="button" class="btn btn-secondary" (click)="reset()">Annuler</button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Valider</button>
+  </div>
 </form>
