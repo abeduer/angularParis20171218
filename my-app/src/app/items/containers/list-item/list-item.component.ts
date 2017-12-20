@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { COLLECTION } from '../../collection';
+import { CollectionService } from '../../../core/services/collection/collection.service';
 import { Item } from '../../../shared/interfaces/item.model';
 
 @Component({
@@ -8,13 +8,12 @@ import { Item } from '../../../shared/interfaces/item.model';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-
   collection: Item[];
 
-  constructor() { }
+  constructor(private _CollectionService: CollectionService) { }
 
   ngOnInit() {
-    this.collection = COLLECTION;
+    this.collection = this._CollectionService.getCollection();
   }
 
 }

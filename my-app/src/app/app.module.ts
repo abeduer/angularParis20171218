@@ -8,6 +8,8 @@ import { HomeModule } from './home/home.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { ItemsModule } from './items/items.module';
 
+import { CollectionService } from './core/services/collection/collection.service';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -23,7 +25,9 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    CollectionService
+  ],
   bootstrap: [
     AppComponent
   ]
