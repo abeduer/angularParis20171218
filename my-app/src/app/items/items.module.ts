@@ -8,7 +8,7 @@ import { AddItemComponent } from './containers/add-item/add-item.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule, ItemsRoutingModule],
-  exports: [ListItemComponent, AddItemComponent],
+  exports: [],
   declarations: [ItemComponent, ListItemComponent, AddItemComponent]
 })
 export class ItemsModule {}
