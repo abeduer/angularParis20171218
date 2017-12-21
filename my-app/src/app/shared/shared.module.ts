@@ -18,15 +18,7 @@ import { StateDirective } from './directives/state/state.directive';
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [
-    MenuComponent,
-    FormComponent,
-    StateDirective
-  ],
-  exports: [
-    MenuComponent,
-    FormComponent,
-    StateDirective
-  ]
+  declarations: [MenuComponent, FormComponent, StateDirective],
+  exports: [MenuComponent, FormComponent, StateDirective]
 })
-export class SharedModule { }
+export class SharedModule {}

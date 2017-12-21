@@ -10,14 +10,12 @@ import { Item } from '../../../shared/interfaces/item.model';
   styleUrls: ['./add-item.component.scss']
 })
 export class AddItemComponent implements OnInit {
-
   constructor(
     private _CollectionService: CollectionService,
     private _Router: Router
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addItem(item: Item): void {
     this._CollectionService.addItem(item);

@@ -11,10 +11,9 @@ import { Item } from '../../../shared/interfaces/item.model';
 export class ListItemComponent implements OnInit {
   collection: Observable<Item[]>;
 
-  constructor(private _CollectionService: CollectionService) { }
+  constructor(private _CollectionService: CollectionService) {}
 
   ngOnInit() {
     this.collection = this._CollectionService.getCollection();
   }
-
 }

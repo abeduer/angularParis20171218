@@ -4,13 +4,8 @@ import { PageNotFoundRoutingModule } from './page-not-found-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PageNotFoundRoutingModule
-  ],
-  declarations: [
-    PageNotFoundComponent
-  ],
+  imports: [CommonModule, PageNotFoundRoutingModule],
+  declarations: [PageNotFoundComponent],
   exports: []
 })
-export class PageNotFoundModule { }
+export class PageNotFoundModule {}

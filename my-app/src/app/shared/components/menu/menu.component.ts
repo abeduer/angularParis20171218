@@ -6,14 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
   isCollapsed = true;
   title: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.title = 'Nom Application';
   }
-
 }

@@ -18,13 +18,18 @@ export class FormComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createForm(): void {
     this.form = this._FormBuilder.group({
-      name: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
-      reference: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      name: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(5)])
+      ],
+      reference: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(4)])
+      ],
       state: State.ALIVRER
     });
   }
@@ -44,8 +49,7 @@ export class FormComponent implements OnInit {
     this.openModal();
   }
 
-  openModal(): void {
-  }
+  openModal(): void {}
 
   reset(): void {
     this.form.reset();
