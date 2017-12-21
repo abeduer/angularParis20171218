@@ -17,8 +17,12 @@ export class ItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  changeState(newState: State) {
+  changeState(newState: State): void {
     this.item.state = newState;
     this._CollectionService.updateItem(this.item);
+  }
+
+  deleteShippedItem(): void {
+    this._CollectionService.deleteItem(this.item);
   }
 }
