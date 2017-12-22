@@ -21,8 +21,4 @@ export class ItemComponent implements OnInit {
     this.item.state = newState;
     this._CollectionService.updateItem(this.item);
   }
-
-  deleteShippedItem(): void {
-    this._CollectionService.deleteItem(this.item);
-  }
 }

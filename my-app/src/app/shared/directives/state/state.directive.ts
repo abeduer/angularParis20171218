@@ -1,10 +1,4 @@
-import {
-  Directive,
-  Input,
-  OnChanges,
-  HostBinding,
-  ElementRef
-} from '@angular/core';
+import { Directive, Input, OnChanges, HostBinding } from '@angular/core';
 import { State } from '../../enums/state.enum';
 
 @Directive({
