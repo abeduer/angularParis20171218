@@ -9,7 +9,7 @@
   <div class="card-body">
     <h4 class="card-title">{{item.name}}</h4>
     <p class="card-text">{{item.reference}}</p>
-    <a class="btn btn-secondary" [routerLink]="['/edit', item.id]">Modifier</a>
+    <a class="btn btn-secondary" [routerLink]="['/items/edit', item.id]">Modifier</a>
     <button type="button" class="btn btn-primary" *ngIf="state.ALIVRER === item.state" (click)="changeState(state.ENCOURS)">{{state.ENCOURS}}</button>
     <button type="button" class="btn btn-success" *ngIf="state.ENCOURS === item.state" (click)="changeState(state.LIVREE)">{{state.LIVREE}}</button>
   </div>

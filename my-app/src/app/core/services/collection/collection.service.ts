@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument
+  AngularFirestoreCollection
 } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
@@ -32,18 +31,17 @@ export class CollectionService {
 
   addItem(item: Item): void {
     item.id = this._AngularFirestore.createId();
-    this.itemsCollection.doc(item.id).set(item);
-  }
-
-  editItem(item: Item): void {
-    this.itemsCollection.doc(item.id).set(item);
+    this.itemsCollection.doc(item.id).set(item)
+      .catch(error => console.log(error));
   }
 
   updateItem(item: Item): void {
-    this.itemsCollection.doc(item.id).update(item);
+    this.itemsCollection.doc(item.id).update(item)
+      .catch(error => console.log(error));
   }
 
   deleteItem(item: Item): void {
-    this.itemsCollection.doc(item.id).delete();
+    this.itemsCollection.doc(item.id).delete()
+      .catch(error => console.log(error));
   }
 }

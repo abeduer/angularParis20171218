@@ -7,7 +7,7 @@ import { AddItemComponent } from './containers/add-item/add-item.component';
 import { EditItemComponent } from './containers/edit-item/edit-item.component';
 
 const routes: Routes = [
-  { path: 'list', component: ListItemComponent },
+  { path: '', component: ListItemComponent },
   { path: 'add', component: AddItemComponent },
   { path: 'edit/:itemId', component: EditItemComponent }
 ];

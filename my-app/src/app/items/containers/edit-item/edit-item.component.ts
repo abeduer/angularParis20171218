@@ -25,12 +25,12 @@ export class EditItemComponent implements OnInit {
   }
 
   editItem(item: Item): void {
-    this._CollectionService.editItem(item);
-    this._Router.navigate(['/list']);
+    this._CollectionService.updateItem(item);
+    this._Router.navigate(['/items']);
   }
 
   deleteItem(item: Item): void {
     this._CollectionService.deleteItem(item);
-    this._Router.navigate(['/list']);
+    this._Router.navigate(['/items']);
   }
 }

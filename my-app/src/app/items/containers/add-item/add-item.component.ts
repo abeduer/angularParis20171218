@@ -19,6 +19,6 @@ export class AddItemComponent implements OnInit {
 
   addItem(item: Item): void {
     this._CollectionService.addItem(item);
-    this._Router.navigate(['/list']);
+    this._Router.navigate(['/items']);
   }
 }
