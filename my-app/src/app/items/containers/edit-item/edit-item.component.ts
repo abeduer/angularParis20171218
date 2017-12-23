@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./edit-item.component.scss']
 })
 export class EditItemComponent implements OnInit {
-  item: Observable<Item>;
+  item$: Observable<Item>;
 
   constructor(
     private _CollectionService: CollectionService,
@@ -19,18 +19,20 @@ export class EditItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.item = this._ActivatedRoute.paramMap
+    this.item$ = this._ActivatedRoute.paramMap
       .map((params: ParamMap) => params.get('itemId'))
       .switchMap(id => this._CollectionService.getItem(id));
   }
 
   editItem(item: Item): void {
     this._CollectionService.updateItem(item);
-    this._Router.navigate(['/items']);
+    this._Router.navigate(['/items'])
+      .catch(error => console.log(error));
   }
 
   deleteItem(item: Item): void {
     this._CollectionService.deleteItem(item);
-    this._Router.navigate(['/items']);
+    this._Router.navigate(['/items'])
+      .catch(error => console.log(error));
   }
 }

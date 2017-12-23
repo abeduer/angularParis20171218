@@ -9,11 +9,11 @@ import { Item } from '../../../shared/interfaces/item.model';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-  collection: Observable<Item[]>;
+  collection$: Observable<Item[]>;
 
   constructor(private _CollectionService: CollectionService) {}
 
   ngOnInit() {
-    this.collection = this._CollectionService.getCollection();
+    this.collection$ = this._CollectionService.getCollection();
   }
 }

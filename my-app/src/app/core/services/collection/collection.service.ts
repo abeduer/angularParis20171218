@@ -10,7 +10,7 @@ import { Item } from '../../../shared/interfaces/item.model';
 @Injectable()
 export class CollectionService {
   private itemsCollection: AngularFirestoreCollection<Item>;
-  collection: Observable<Item[]>;
+  collection$: Observable<Item[]>;
 
   constructor(private _AngularFirestore: AngularFirestore) {
     this.itemsCollection = _AngularFirestore.collection<Item>('collection');
@@ -18,11 +18,11 @@ export class CollectionService {
   }
 
   getCollection(): Observable<Item[]> {
-    return this.collection;
+    return this.collection$;
   }
 
   setCollection(collection: Observable<Item[]>): void {
-    this.collection = collection;
+    this.collection$ = collection;
   }
 
   getItem(id: string): Observable<Item> {

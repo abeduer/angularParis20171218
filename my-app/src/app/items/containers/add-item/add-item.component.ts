@@ -19,6 +19,7 @@ export class AddItemComponent implements OnInit {
 
   addItem(item: Item): void {
     this._CollectionService.addItem(item);
-    this._Router.navigate(['/items']);
+    this._Router.navigate(['/items'])
+      .catch(error => console.log(error));
   }
 }

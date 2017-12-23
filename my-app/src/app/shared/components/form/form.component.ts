@@ -41,13 +41,17 @@ export class FormComponent implements OnInit {
     return this.form.get(fieldName).touched && this.form.get(fieldName).invalid;
   }
 
+  _getItem(): Item {
+    const data = this.form.value as Item;
+    if (!this.item) {
+      return data;
+    }
+    const id = this.item.id;
+    return {id, ...data};
+  }
+
   process(): void {
-    this.dataItem.emit({
-      id: this.item ? this.item.id : '',
-      name: this.form.controls['name'].value,
-      reference: this.form.controls['reference'].value,
-      state: this.form.controls['state'].value
-    });
+    this.dataItem.emit(this._getItem());
     this.reset();
     this.openModal();
   }
