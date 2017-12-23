@@ -16,7 +16,11 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: true } // <-- debugging purposes only
+      {
+        useHash: true,
+        preloadingStrategy: PreloadAllModules,
+        // enableTracing: true // <-- debugging purposes only
+      }
     )
   ]
 })
