@@ -1,8 +1,8 @@
 <div class="container" *ngIf="collection$ | async as collection">
-  <app-paginate></app-paginate>
-  <div class="row" *ngFor="let item of collection">
+  <app-paginate (doPageChange)="changePage($event)" [pageSize]="pageSize" [page]="page" [collectionSize]="collection.length"></app-paginate>
+  <div *ngFor="let item of collection.slice(startIndex, startIndex + pageSize)">
     <!-- {{item | json}} -->
     <app-item [item]="item"></app-item>
   </div>
-  <app-paginate></app-paginate>
+  <app-paginate (doPageChange)="changePage($event)" [pageSize]="pageSize" [page]="page" [collectionSize]="collection.length"></app-paginate>
 </div>

@@ -10,10 +10,18 @@ import { Item } from '../../../shared/interfaces/item.model';
 })
 export class ListItemComponent implements OnInit {
   collection$: Observable<Item[]>;
+  page = 1;
+  pageSize = 5;
+  startIndex = 0;
 
   constructor(private _CollectionService: CollectionService) {}
 
   ngOnInit() {
     this.collection$ = this._CollectionService.getCollection();
+  }
+
+  changePage(page: number): void {
+    this.startIndex = (page - 1) * this.pageSize;
+    this.page = page;
   }
 }
