@@ -10,6 +10,7 @@ import { FormComponent } from './components/form/form.component';
 
 import { StateDirective } from './directives/state/state.directive';
 import { PaginateComponent } from './components/paginate/paginate.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,13 @@ import { PaginateComponent } from './components/paginate/paginate.component';
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [MenuComponent, FormComponent, StateDirective, PaginateComponent],
+  declarations: [
+    MenuComponent,
+    FormComponent,
+    StateDirective,
+    PaginateComponent,
+    ModalComponent
+  ],
   exports: [MenuComponent, FormComponent, StateDirective, PaginateComponent]
 })
 export class SharedModule {}

@@ -17,6 +17,8 @@ export class FormComponent implements OnInit {
   @Output() doDelete: EventEmitter<Item> = new EventEmitter();
   @Output() dataItem: EventEmitter<Item> = new EventEmitter();
 
+  showModal = false;
+
   constructor(private _FormBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -47,19 +49,27 @@ export class FormComponent implements OnInit {
       return data;
     }
     const id = this.item.id;
-    return {id, ...data};
+    return { id, ...data };
   }
 
   process(): void {
-    this.dataItem.emit(this._getItem());
-    this.reset();
     this.openModal();
   }
 
-  openModal(): void {}
+  openModal(): void {
+    this.showModal = true;
+  }
 
   delete(): void {
     this.doDelete.emit(this.item);
+  }
+
+  modalClosed(close: boolean) {
+    if (close) {
+      this.showModal = false;
+      this.dataItem.emit(this._getItem());
+      this.reset();
+    }
   }
 
   reset(): void {

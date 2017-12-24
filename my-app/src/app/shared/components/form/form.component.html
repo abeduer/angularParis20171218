@@ -18,3 +18,5 @@
     <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Valider</button>
   </div>
 </form>
+
+<app-modal [showModal]="showModal" (closeModal)="modalClosed($event)"></app-modal>

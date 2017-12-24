@@ -14,6 +14,7 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { HomeModule } from './home/home.module';
 
 import { CollectionService } from './core/services/collection/collection.service';
+import { ModalService } from './core/services/modal/modal.service';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment.prod';
@@ -33,7 +34,7 @@ import { environment } from '../environments/environment.prod';
     PageNotFoundModule
   ],
   declarations: [AppComponent],
-  providers: [CollectionService],
+  providers: [CollectionService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
