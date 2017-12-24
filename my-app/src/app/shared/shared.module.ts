@@ -9,6 +9,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { FormComponent } from './components/form/form.component';
 
 import { StateDirective } from './directives/state/state.directive';
+import { PaginateComponent } from './components/paginate/paginate.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { StateDirective } from './directives/state/state.directive';
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [MenuComponent, FormComponent, StateDirective],
-  exports: [MenuComponent, FormComponent, StateDirective]
+  declarations: [MenuComponent, FormComponent, StateDirective, PaginateComponent],
+  exports: [MenuComponent, FormComponent, StateDirective, PaginateComponent]
 })
 export class SharedModule {}

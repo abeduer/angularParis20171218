@@ -1,6 +1,8 @@
-<div class="container">
-  <div *ngFor="let item of collection$ | async">
+<div class="container" *ngIf="collection$ | async as collection">
+  <app-paginate></app-paginate>
+  <div class="row" *ngFor="let item of collection">
     <!-- {{item | json}} -->
     <app-item [item]="item"></app-item>
   </div>
+  <app-paginate></app-paginate>
 </div>
